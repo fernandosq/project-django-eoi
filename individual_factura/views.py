@@ -15,13 +15,13 @@ def linea(request,pk):
     lineas_factura = factura.lineadefactura_set.all()
     count = 0
     for e in lineas_factura:
-        count=LineaDeFactura.total(e) + count
-    print(count)
-    context={
-        "total_factura":count,
-        "lineas_factura":lineas_factura,
+        count = LineaDeFactura.total(e) + count
+    
+    context = {
+        "total_factura": count,
+        "lineas_factura": lineas_factura,
     }
 
-    return render(request,"information.html",context)
+    return render(request, "information.html", context)
 
 
