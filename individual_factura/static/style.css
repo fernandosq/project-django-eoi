@@ -1,0 +1,7 @@
+body{
+    background-image: image("https://cdn.pixabay.com/photo/2015/09/05/21/14/calculator-925385_960_720.jpg") !important;
+}
+.name{
+    color: azure;
+    font-family: fantasy;
+}

@@ -1,33 +1,30 @@
 {% extends "layout.html" %}
 {% load static %}
 {% block body %}
-
-
-
-
-
-
-<table class="table table-hover">
+ <link rel="stylesheet" href="{% static 'individual_factura/styles.css' %}">
+<body background="https://cdn.pixabay.com/photo/2015/09/05/21/14/calculator-925385_960_720.jpg", style=" background-size: cover">
+<table class="table table-hover", style="margin-top:150px">
   <thead>
     <tr>
-      <th scope="col">Número de facturación</th>
-      <th scope="col">Año de facturación</th>
-      <th scope="col">Fecha de emisión</th>
-      <th scope="col">Nombre del cliente</th>
-      <th scope="col">Dirección</th>
+      <th scope="col", style="color: #87bdd8 !important">Número de facturación</th>
+      <th scope="col", style="color: #87bdd8 !important">Año de facturación</th>
+      <th scope="col", style="color: #87bdd8 !important">Fecha de emisión</th>
+      <th scope="col", style="color: #87bdd8 !important">Nombre del cliente</th>
+      <th scope="col", style="color: #87bdd8 !important">Dirección</th>
     </tr>
   </thead>
   <tbody>
   {% for factura in facturas %}
-        <tr>
-          <th scope="row"><a href="{% url 'linea' factura.numero_factura %}">{{ factura.numero_factura }}</a></h1></th>
-          <td>{{ factura.anio }}</td>
-          <td>{{ factura.fecha_emision }}</td>
-          <td>{{ factura.cliente_nombre }}</td>
-          <td>{{ factura.cliente_direccion }}</td>
+        <tr style="color: #F0FFFF !important">
+          <th style="color: #F0FFFF !important", scope="row"><a href="{% url 'linea' factura.numero_factura %}">{{ factura.numero_factura }} </a></h1></th>
+          <td style="color: #F0FFFF !important">{{ factura.anio }}</td>
+          <td style="color: #F0FFFF !important">{{ factura.fecha_emision }}</td>
+          <td style="color: #F0FFFF !important">{{ factura.cliente_nombre }}</td>
+          <td style="color: #F0FFFF !important">{{ factura.cliente_direccion }}</td>
         </tr>
   {% endfor %}
   </tbody>
 </table>
+</body>
 
 {% endblock %}
