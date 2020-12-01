@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load mathfilters %}
+{% block body %}
+<h1>Cliente: {{lineas_factura.0.factura.cliente_nombre}}</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Factura</th>
+      <th scope="col">Nombre producto</th>
+      <th scope="col">Precio unitario</th>
+      <th scope="col">Unidades</th>
+      <th scope="col">Precio linea</th>
+      <th scope="col">TOTAL</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for linea in lineas_factura %}
+    <tr>
+      <th scope="row">{{linea.factura.numero_factura}}</th>
+      <td>{{linea.nombre_producto}}</td>
+      <td>{{linea.precio_unitario}}€</td>
+      <td>{{linea.unidades}}</td>
+      <td>{{ linea.unidades|mul:linea.precio_unitario }}€</td>
+{% endfor %}
+    </tr>
+    <tr>
+
+      <td colspan="5">TOTAL</td>
+      <td>{{total_factura}}€</td>
+    </tr>
+   <tr>
+
+      <td colspan="5">TOTAL con IVA(21%)</td>
+      <td>{{ total_factura|mul:1.21 }}€</td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}
