@@ -16,7 +16,7 @@ def linea(request,pk):
     count = 0
     for e in lineas_factura:
         count = LineaDeFactura.total(e) + count
-    
+
     context = {
         "total_factura": count,
         "lineas_factura": lineas_factura,
